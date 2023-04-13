@@ -33,7 +33,7 @@ RUN apt-get update \
  && apt-get -y install --no-install-recommends -o Dpkg::Options::="--force-confnew" /var/tmp/*.deb
 
 RUN rm -f /var/tmp/*.deb \
- && sed -i "s|redirectHostname: unifi||g" /usr/share/unifi-core/app/config/config.yaml \
+ && sed -i "s|redirectHostname: unifi||g" /usr/share/unifi-core/app/config/default.yaml \
  && sed -i "s|data_directory = '/var/lib/postgresql/14/main'|data_directory = '/data/postgresql/14/main/data'|g" /etc/postgresql/14/main/postgresql.conf \
  && sed -i "s|#PermitRootLogin prohibit-password|PermitRootLogin yes|g" /etc/ssh/sshd_config \
  && rm -rf /lib/systemd/system/postgresql-cluster@9.6-protect.service.d \
