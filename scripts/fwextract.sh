@@ -29,7 +29,7 @@ done < packages.txt
 cp -p _${firmware_filename}.extracted/squashfs-root/usr/lib/version ./version
 
 # Remove unused packages
-rm ble-http-transport*.deb \
+rm -f ble-http-transport*.deb \
    kmod*.deb \
    linux-image*.deb \
    ubnt-rpsd*.deb \
