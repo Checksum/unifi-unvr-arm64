@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source /etc/default/storage_disk
 disk="${STORAGE_DISK:-/dev/sda1}"
 device=$(basename ${disk})
 sbytes=$(df -B1 --output=size ${disk} | awk 'NR==2 {print $1}')
@@ -59,5 +58,20 @@ EOT
     "raid": "single"
 }
 EOT
+    ;;
 
+rwfs)
+	cat <<EOT
+{
+  "isMigrated": false,
+  "migratable": {
+    "canMigrate": false
+  }
+}
+EOT
+  ;;
+
+   *)
+      echo '{}'
+   ;;
 esac
